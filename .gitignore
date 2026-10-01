@@ -1,0 +1,16 @@
+# IntelliJ
+.idea/
+*.iml
+out/
+# Maven / Gradle
+target/
+build/
+.gradle/
+# Eclipse / VS Code
+.classpath
+.project
+.settings/
+bin/
+.vscode/
+# SO
+.DS_Store
