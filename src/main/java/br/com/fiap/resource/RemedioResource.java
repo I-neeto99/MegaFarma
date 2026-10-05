@@ -4,6 +4,7 @@ import br.com.fiap.bo.RemedioBO;
 import br.com.fiap.to.RemedioTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +15,7 @@ import java.util.List;
 public class RemedioResource {
     private RemedioBO remedioBO = new RemedioBO();
 
+    @GetMapping
     public ResponseEntity<List<RemedioTO>> findAll(){
         List<RemedioTO> remedios = remedioBO.findAll();
         if (remedios != null) {
