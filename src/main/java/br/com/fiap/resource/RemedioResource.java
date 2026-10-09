@@ -42,4 +42,33 @@ public class RemedioResource {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao salvar o remédio");
         }
     }
-}
+
+    @DeleteMapping
+    public ResponseEntity<?> delete(@PathVariable Long codigo) {
+        if (remedioBO.delete(codigo)) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT)
+                    .body("Remédio deletado com sucesso");
+
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Remédio não encontrado");
+        }
+    }
+
+        @PutMapping("/{codigo}")
+        public ResponseEntity<?> update(@PathVariable Long codigo,
+                                        @RequestBody @Valid RemedioTO remedio) {
+            try {
+                remedio.setCodigo(codigo);
+                RemedioTO resultado = remedioBO.update(remedio);
+                return ResponseEntity.status(HttpStatus.OK).body(resultado);
+            } catch (Exception e) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body("Erro ao atualizar o remedio");
+            }
+
+        }
+
+        }
+
+
