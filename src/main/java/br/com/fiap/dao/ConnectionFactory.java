@@ -26,7 +26,7 @@ public class ConnectionFactory {
             String user = System.getenv("DB_USER");
             String pass = System.getenv("DB_PASSWORD");
             if (url == null || user == null || pass == null) {
-                throw new RuntimeException("VAriáveis de ambiente do banco não configuradas");
+                throw new RuntimeException("Variáveis de ambiente do banco não configuradas");
             }
             connection = DriverManager.getConnection(url, user, pass);
 
