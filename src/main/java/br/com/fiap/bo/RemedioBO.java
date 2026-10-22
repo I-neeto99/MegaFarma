@@ -2,8 +2,6 @@ package br.com.fiap.bo;
 
 import br.com.fiap.dao.RemedioDAO;
 import br.com.fiap.to.RemedioTO;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class RemedioBO {

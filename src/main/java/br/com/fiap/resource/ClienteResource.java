@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/megafarma/clientes")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ClienteResource {
     private ClienteBO clienteBO = new ClienteBO();
 
@@ -62,7 +63,7 @@ public class ClienteResource {
             return ResponseEntity.status(HttpStatus.OK).body("Cliente deletado com sucesso");
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body("Cliente não encontrado");
+                    .body("Remédio não encontrado");
         }
     }
 }

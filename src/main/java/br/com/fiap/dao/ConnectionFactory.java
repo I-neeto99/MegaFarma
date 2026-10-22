@@ -23,14 +23,14 @@ public class ConnectionFactory {
                 return connection;
             }
 
-            String url  = System.getenv("DB_URL");
-            String user = System.getenv("DB_USER");
-            String pass = System.getenv("DB_PASSWORD");
+            String url  = System.getenv("jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL");
+            String user = System.getenv("RM572912");
+            String pass = System.getenv("fiap25");
 
-            if (url == null || user == null || pass == null) {
-                throw new IllegalStateException(
-                        "Variáveis de ambiente não configuradas: DB_URL, DB_USER, DB_PASSWORD");
-            }
+           // if (url == null || user == null || pass == null) {
+             //   throw new IllegalStateException(
+               //         "Variáveis de ambiente não configuradas: DB_URL, DB_USER, DB_PASSWORD");
+            //}
 
             connection = DriverManager.getConnection(url, user, pass);
             return connection;
