@@ -1,6 +1,6 @@
 package br.com.fiap.dao;
 
-import br.com.fiap.to.VendaTO;
+import br.com.fiap.to.VendasTO;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -10,13 +10,13 @@ import java.sql.Types;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class VendaDAO {
+public class VendasDAO {
 
     // ---------- métodos auxiliares ----------
 
-    /** Monta um VendaTO a partir de uma linha do banco, tratando campos nulos. */
-    private VendaTO montaVenda(ResultSet rs) throws SQLException {
-        VendaTO venda = new VendaTO();
+    /** Monta um VendasTO a partir de uma linha do banco, tratando campos nulos. */
+    private VendasTO montaVenda(ResultSet rs) throws SQLException {
+        VendasTO venda = new VendasTO();
         venda.setCodigo(rs.getLong("codigo"));
         venda.setDataDaVenda(toLocalDate(rs.getDate("data_da_venda")));
 
@@ -48,8 +48,8 @@ public class VendaDAO {
 
     // ---------- CRUD ----------
 
-    public ArrayList<VendaTO> findAll() {
-        ArrayList<VendaTO> vendas = new ArrayList<>();
+    public ArrayList<VendasTO> findAll() {
+        ArrayList<VendasTO> vendas = new ArrayList<>();
         String sql = "select * from ddd_vendas order by codigo";
 
         try (PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)) {
@@ -66,7 +66,7 @@ public class VendaDAO {
         return vendas;
     }
 
-    public VendaTO findByCodigo(Long codigo) {
+    public VendasTO findByCodigo(Long codigo) {
         String sql = "select * from ddd_vendas where codigo = ?";
 
         try (PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)) {
@@ -85,7 +85,7 @@ public class VendaDAO {
         }
     }
 
-    public VendaTO save(VendaTO venda) {
+    public VendasTO save(VendasTO venda) {
         String sql = "insert into ddd_vendas (data_da_venda, codcliente) "
                 + "values (?, ?)";
 
@@ -105,7 +105,7 @@ public class VendaDAO {
         }
     }
 
-    public VendaTO update(VendaTO venda) {
+    public VendasTO update(VendasTO venda) {
         String sql = "update ddd_vendas set data_da_venda = ?, "
                 + "codcliente = ? where codigo = ?";
 

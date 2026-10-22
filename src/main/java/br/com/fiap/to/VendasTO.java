@@ -4,15 +4,15 @@ import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 
-public class VendaTO {
+public class VendasTO {
     // atributos
     private Long codigo;
     @PastOrPresent private LocalDate dataDaVenda;
     @NotNull @Positive private Long codCliente;
     // construtores
-    public VendaTO() {
+    public VendasTO() {
     }
-    public VendaTO(Long codigo, LocalDate dataDaVenda, Long codCliente) {
+    public VendasTO(Long codigo, LocalDate dataDaVenda, Long codCliente) {
         this.codigo = codigo;
         this.dataDaVenda = dataDaVenda;
         this.codCliente = codCliente;
@@ -21,11 +21,9 @@ public class VendaTO {
     public Long getCodigo() {
         return codigo;
     }
-
     public void setCodigo(Long codigo) {
         this.codigo = codigo;
     }
-
     public LocalDate getDataDaVenda() {
         return dataDaVenda;
     }
