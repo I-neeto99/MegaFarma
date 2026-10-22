@@ -15,7 +15,7 @@ private Long idCliente;
 @PastOrPresent private LocalDate dataDeNascimento;
 
     public ClienteTO() {}
-    public ClienteTO(Long codigo, String nome, String cpf, String email, LocalDate dataDeNascimento) {
+    public ClienteTO(Long idCliente, String nome, String cpf, String email, LocalDate dataDeNascimento) {
         this.idCliente = idCliente;
         this.nome = nome;
         this.cpf = cpf;

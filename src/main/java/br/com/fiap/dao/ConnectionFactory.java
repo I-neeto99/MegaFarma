@@ -27,10 +27,10 @@ public class ConnectionFactory {
             String user = System.getenv("RM572912");
             String pass = System.getenv("fiap25");
 
-            if (url == null || user == null || pass == null) {
-                throw new IllegalStateException(
-                        "Variáveis de ambiente não configuradas: DB_URL, DB_USER, DB_PASSWORD");
-            }
+           // if (url == null || user == null || pass == null) {
+             //   throw new IllegalStateException(
+               //         "Variáveis de ambiente não configuradas: DB_URL, DB_USER, DB_PASSWORD");
+            //}
 
             connection = DriverManager.getConnection(url, user, pass);
             return connection;
