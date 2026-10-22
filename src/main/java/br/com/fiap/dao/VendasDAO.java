@@ -10,7 +10,7 @@ import java.sql.Types;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class VendasDAO {
+public class VendasDAO implements IVendasDAO {
 
     // ---------- métodos auxiliares ----------
 
