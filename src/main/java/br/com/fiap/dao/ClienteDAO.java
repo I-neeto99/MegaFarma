@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class ClienteDAO {
+public class ClienteDAO implements IClienteDAO {
 
     // ---------- métodos auxiliares ----------
 

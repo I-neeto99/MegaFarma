@@ -63,7 +63,7 @@ public class ClienteResource {
             return ResponseEntity.status(HttpStatus.OK).body("Cliente deletado com sucesso");
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body("Remédio não encontrado");
+                    .body("Cliente não encontrado");
         }
     }
 }
