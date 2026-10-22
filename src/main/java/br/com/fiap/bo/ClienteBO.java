@@ -17,7 +17,7 @@ public class ClienteBO {
     //
     //  Troque só esta linha quando o Oracle estiver configurado.
     // ============================================================
-    private static final boolean USAR_MOCK = true;
+    private static final boolean USAR_MOCK = false;
 
     private IClienteDAO clienteDAO;
 

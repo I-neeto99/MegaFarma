@@ -1,0 +1,119 @@
+{
+  "info": {
+    "name": "MegaFarma",
+    "description": "Testes do CRUD de clientes e remedios. Base: http://localhost:8080",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base", "value": "http://localhost:8080" }
+  ],
+  "item": [
+    {
+      "name": "Clientes",
+      "item": [
+        {
+          "name": "1 - GET lista todos",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base}}/megafarma/clientes", "host": ["{{base}}"], "path": ["megafarma", "clientes"] }
+          }
+        },
+        {
+          "name": "2 - POST cadastra",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Italo Oliveira\",\n    \"cpf\": \"11122233344\",\n    \"email\": \"italo@email.com\",\n    \"dataDeNascimento\": \"1999-07-10\"\n}"
+            },
+            "url": { "raw": "{{base}}/megafarma/clientes", "host": ["{{base}}"], "path": ["megafarma", "clientes"] }
+          }
+        },
+        {
+          "name": "3 - GET por id",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base}}/megafarma/clientes/1", "host": ["{{base}}"], "path": ["megafarma", "clientes", "1"] }
+          }
+        },
+        {
+          "name": "4 - PUT atualiza",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Italo Oliveira Atualizado\",\n    \"cpf\": \"11122233344\",\n    \"email\": \"novo@email.com\",\n    \"dataDeNascimento\": \"1999-07-10\"\n}"
+            },
+            "url": { "raw": "{{base}}/megafarma/clientes/1", "host": ["{{base}}"], "path": ["megafarma", "clientes", "1"] }
+          }
+        },
+        {
+          "name": "5 - DELETE apaga",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{base}}/megafarma/clientes/1", "host": ["{{base}}"], "path": ["megafarma", "clientes", "1"] }
+          }
+        },
+        {
+          "name": "6 - GET id inexistente (espera 404)",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base}}/megafarma/clientes/999", "host": ["{{base}}"], "path": ["megafarma", "clientes", "999"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Remedios",
+      "item": [
+        {
+          "name": "1 - GET lista todos",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base}}/megafarma", "host": ["{{base}}"], "path": ["megafarma"] }
+          }
+        },
+        {
+          "name": "2 - POST cadastra",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Dipirona 500mg\",\n    \"preco\": 12.90,\n    \"dataDeFabricacao\": \"2026-01-10\",\n    \"dataDeValidade\": \"2028-01-10\"\n}"
+            },
+            "url": { "raw": "{{base}}/megafarma", "host": ["{{base}}"], "path": ["megafarma"] }
+          }
+        },
+        {
+          "name": "3 - GET por codigo",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base}}/megafarma/1", "host": ["{{base}}"], "path": ["megafarma", "1"] }
+          }
+        },
+        {
+          "name": "4 - PUT atualiza",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Dipirona 1g\",\n    \"preco\": 19.90,\n    \"dataDeFabricacao\": \"2026-01-10\",\n    \"dataDeValidade\": \"2028-01-10\"\n}"
+            },
+            "url": { "raw": "{{base}}/megafarma/1", "host": ["{{base}}"], "path": ["megafarma", "1"] }
+          }
+        },
+        {
+          "name": "5 - DELETE apaga",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{base}}/megafarma/1", "host": ["{{base}}"], "path": ["megafarma", "1"] }
+          }
+        }
+      ]
+    }
+  ]
+}

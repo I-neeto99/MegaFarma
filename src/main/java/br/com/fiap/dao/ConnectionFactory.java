@@ -7,6 +7,13 @@ import java.sql.SQLException;
 public class ConnectionFactory {
     private static Connection connection;
 
+    // Dados da conexão com o Oracle da FIAP.
+    // Se as variáveis de ambiente DB_URL / DB_USER / DB_PASSWORD existirem,
+    // elas têm prioridade sobre os valores abaixo.
+    private static final String URL_PADRAO   = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL";
+    private static final String USER_PADRAO  = "RM572912";
+    private static final String PASS_PADRAO  = "fiap25";
+
     public static void closeConnection() {
         try {
             if (connection != null && !connection.isClosed()) {
@@ -23,14 +30,10 @@ public class ConnectionFactory {
                 return connection;
             }
 
-            String url  = System.getenv("jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL");
-            String user = System.getenv("RM572912");
-            String pass = System.getenv("fiap25");
-
-           // if (url == null || user == null || pass == null) {
-             //   throw new IllegalStateException(
-               //         "Variáveis de ambiente não configuradas: DB_URL, DB_USER, DB_PASSWORD");
-            //}
+            // System.getenv recebe o NOME da variável de ambiente, não o valor.
+            String url  = valorOuPadrao("DB_URL",      URL_PADRAO);
+            String user = valorOuPadrao("DB_USER",     USER_PADRAO);
+            String pass = valorOuPadrao("DB_PASSWORD", PASS_PADRAO);
 
             connection = DriverManager.getConnection(url, user, pass);
             return connection;
@@ -38,5 +41,11 @@ public class ConnectionFactory {
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao conectar no banco: " + e.getMessage(), e);
         }
+    }
+
+    /** Lê a variável de ambiente; se ela não existir, usa o valor padrão. */
+    private static String valorOuPadrao(String nomeDaVariavel, String padrao) {
+        String valor = System.getenv(nomeDaVariavel);
+        return (valor != null && !valor.isBlank()) ? valor : padrao;
     }
 }
