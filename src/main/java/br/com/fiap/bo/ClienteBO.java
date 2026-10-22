@@ -12,12 +12,16 @@ public class ClienteBO {
     // ============================================================
     //  A CHAVE DO MOCK
     //
+    //  false -> usa o ClienteDAO     (Oracle de verdade)  <- padrão
     //  true  -> usa o ClienteDAOMock (lista em memória, sem banco)
-    //  false -> usa o ClienteDAO     (Oracle de verdade)
     //
-    //  Troque só esta linha quando o Oracle estiver configurado.
+    //  Para ligar o mock sem mexer no código, rode assim:
+    //      ./mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-Dmegafarma.mock=true"
+    //
+    //  Os testes automáticos ligam sozinhos.
     // ============================================================
-    private static final boolean USAR_MOCK = false;
+    private static final boolean USAR_MOCK =
+            Boolean.parseBoolean(System.getProperty("megafarma.mock", "false"));
 
     private IClienteDAO clienteDAO;
 
