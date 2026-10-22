@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class RemedioDAO implements IRemedioDAO {
 
-    // ---------- métodos auxiliares ----------
+    // métodos auxiliares
 
     /** Monta um RemedioTO a partir de uma linha do banco, tratando campos nulos. */
     private RemedioTO montaRemedio(ResultSet rs) throws SQLException {
@@ -34,7 +34,7 @@ public class RemedioDAO implements IRemedioDAO {
         return data != null ? Date.valueOf(data) : null;
     }
 
-    // ---------- CRUD ----------
+
 
     public ArrayList<RemedioTO> findAll() {
         ArrayList<RemedioTO> remedios = new ArrayList<>();

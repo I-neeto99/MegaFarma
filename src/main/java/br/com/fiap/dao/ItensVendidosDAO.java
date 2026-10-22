@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class ItensVendidosDAO implements IItensVendidosDAO {
 
-    // ---------- métodos auxiliares ----------
+    // métodos auxiliares
 
     /** Monta um ItensVendidosTO a partir de uma linha do banco. */
     private ItensVendidosTO montaItem(ResultSet rs) throws SQLException {
@@ -19,8 +19,6 @@ public class ItensVendidosDAO implements IItensVendidosDAO {
         item.setQuantidade(rs.getInt("quantidade"));
         return item;
     }
-
-    // ---------- CRUD ----------
 
     public ArrayList<ItensVendidosTO> findAll() {
         ArrayList<ItensVendidosTO> itens = new ArrayList<>();

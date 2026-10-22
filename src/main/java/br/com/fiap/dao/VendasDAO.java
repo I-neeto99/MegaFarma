@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class VendasDAO implements IVendasDAO {
 
-    // ---------- métodos auxiliares ----------
+    //  métodos auxiliares
 
     /** Monta um VendasTO a partir de uma linha do banco, tratando campos nulos. */
     private VendasTO montaVenda(ResultSet rs) throws SQLException {
@@ -46,7 +46,7 @@ public class VendasDAO implements IVendasDAO {
         }
     }
 
-    // ---------- CRUD ----------
+
 
     public ArrayList<VendasTO> findAll() {
         ArrayList<VendasTO> vendas = new ArrayList<>();
