@@ -58,16 +58,11 @@ public class ClienteResource {
 
     @DeleteMapping("/{idCliente}")
     public ResponseEntity<?> delete(@PathVariable Long idCliente) {
-        // TODO(human): escreva o corpo deste método.
-        //
-        // Siga a mesma ideia do findByIdCliente:
-        //   1. chame clienteBO.delete(idCliente) -> ele devolve um boolean
-        //   2. se for true  -> HttpStatus.OK    + "Cliente deletado com sucesso"
-        //   3. se for false -> HttpStatus.NOT_FOUND + "Cliente não encontrado"
-        //
-        // Dica: NÃO use HttpStatus.NO_CONTENT (204) junto com .body(...).
-        // O 204 significa "sem conteúdo" e o Spring joga a mensagem fora.
-        // Ou manda 200 com mensagem, ou 204 com .build() e sem mensagem.
-        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).build();
+        if (clienteBO.delete(idCliente)) {
+            return ResponseEntity.status(HttpStatus.OK).body("Cliente deletado com sucesso");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Cliente não encontrado");
+        }
     }
 }
