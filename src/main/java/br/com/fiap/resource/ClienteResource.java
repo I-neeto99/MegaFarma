@@ -11,7 +11,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/megafarma/clientes")
-@CrossOrigin(origins = "http://localhost:3000")
 public class ClienteResource {
     private ClienteBO clienteBO = new ClienteBO();
 
