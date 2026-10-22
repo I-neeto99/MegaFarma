@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class RemedioDAO {
+public class RemedioDAO implements IRemedioDAO {
 
     // ---------- métodos auxiliares ----------
 
