@@ -25,39 +25,30 @@ public class RemedioTO {
     public Long getCodigo() {
         return codigo;
     }
-
     public void setCodigo(Long codigo) {
         this.codigo = codigo;
     }
-
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
-
     public Double getPreco() {
         return preco;
     }
-
     public void setPreco(Double preco) {
         this.preco = preco;
     }
-
     public LocalDate getDataDeFabricacao() {
         return dataDeFabricacao;
     }
-
     public void setDataDeFabricacao(LocalDate dataDeFabricacao) {
         this.dataDeFabricacao = dataDeFabricacao;
     }
-
     public LocalDate getDataDeValidade() {
         return dataDeValidade;
     }
-
     public void setDataDeValidade(LocalDate dataDeValidade) {
         this.dataDeValidade = dataDeValidade;
     }
